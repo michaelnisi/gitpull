@@ -1,0 +1,23 @@
+module.exports = gitpull
+
+var spawn = require('child_process').spawn
+
+function gitpull (path, callback) {
+  var me = spawn('git', ['pull'], { cwd: path })
+
+  me.on('exit', function (code) {
+    callback(code === 0 ? null : new Error(code))
+    me.removeAllListeners()
+    me.kill()
+  })
+  
+  me.stdout.on('data', function (data) {
+    console.log('stdout %s', data)
+  })
+
+  me.stderr.on('data', function (data) {
+    console.error('stderr %s', data)
+  })
+
+  return me
+}
