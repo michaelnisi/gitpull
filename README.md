@@ -1,9 +1,5 @@
 # gitpull - git pull on directory
 
-## INSTALLATION
-
-    npm install gitpull
-
 ## USAGE
 
     var gitpull = require('gitpull')
@@ -11,7 +7,6 @@
     gitpull('directory', function (err) {
         console.log(err || 'OK')
     })
-
 
 ## INSTALLATION
 
