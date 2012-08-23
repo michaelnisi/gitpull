@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/michaelnisi/gitpull.png)](http://travis-ci.org/michaelnisi/gitpull)
 # gitpull - git pull on directory
 
 ## USAGE
