@@ -1,25 +1,19 @@
-# gitpull - git pull on directory
+# gitpull - incorporate changes from a remote repository into the current branch
 
-## USAGE
+## Usage
 
     var gitpull = require('gitpull')
     
     gitpull('directory', function (err) {
-        console.log(err || 'OK')
+      console.log(err || 'OK')
     })
 
-## INSTALLATION
+## Installation
 
-Install via [npm](http://npmjs.org/):
+install via [npm](http://npmjs.org/):
 
     npm install gitpull
 
-To install from source:
-
-    git clone git://github.com/michaelnisi/gitpull.git 
-    cd gitpull
-    npm link
-
-## LICENSE
+## License
 
 [MIT License](https://raw.github.com/michaelnisi/gitpull/master/LICENSE)
