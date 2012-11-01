@@ -1,7 +1,6 @@
 var test = require('tap').test
   , fs = require('fs')
   , join = require('path').join
-  , es = require('event-stream')
   , dir = '/tmp/gitpull-' + Math.floor(Math.random() * (1<<24))
   , spawn = require('child_process').spawn
   , gitpull = require('../index.js')
