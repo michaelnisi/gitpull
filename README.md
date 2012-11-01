@@ -2,10 +2,24 @@
 
 ## Usage
 
-    var gitpull = require('gitpull')
+### Stream
+
+    var gitpull = require('../index.js')
+
+    gitpull('.')
+      .on('error', function (err) {
+        console.error(error.message)
+      })
+      .on('end', function () {
+        console.log('OK')
+      })
+
+### Callback
     
-    gitpull('directory', function (err) {
-      console.log(err || 'OK')
+    var gitpull = require('../index.js')
+
+    gitpull('.', function (err) {
+      err ? console.error(err.message) : console.log('OK')  
     })
 
 ## Installation

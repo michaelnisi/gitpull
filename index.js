@@ -4,15 +4,19 @@ var Stream = require('stream').Stream
 module.exports = function (path, callback) {
   var ps = spawn('git', ['pull'], { cwd: path })
     , stream = new Stream()
-    , error
+    , err
 
   stream.readable = true
   stream.writable = false
 
+  function handleError(message) {
+    err = new Error(message)
+    stream.emit('error', err)
+  }
+
   ps.on('exit', function (code) {
     if (!!code) {
-      error = new Error(code)
-      stream.emit('error', error)
+      handleError(code)
     }
     
     ps.kill()
@@ -21,7 +25,7 @@ module.exports = function (path, callback) {
   ps.on('close', function () {
     stream.emit('end')
     if (callback) {
-      callback(error)
+      callback(err)
     }
   })
 
@@ -29,9 +33,7 @@ module.exports = function (path, callback) {
     stream.emit('data', data)
   })
 
-  ps.stderr.on('data', function (data) {
-    stream.emit('error', new Error(data))
-  })
+  ps.stderr.on('data', handleError)
 
   return stream
 }
