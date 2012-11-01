@@ -4,7 +4,7 @@
 
 ### Stream
 
-    var gitpull = require('../index.js')
+    var gitpull = require('gitpull')
 
     gitpull('.')
       .on('error', function (err) {
@@ -16,7 +16,7 @@
 
 ### Callback
     
-    var gitpull = require('../index.js')
+    var gitpull = require('gitpull')
 
     gitpull('.', function (err) {
       err ? console.error(err.message) : console.log('OK')  
