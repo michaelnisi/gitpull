@@ -1,5 +1,7 @@
 # gitpull - incorporate changes from a remote repository into the current branch
 
+[![Build Status](https://secure.travis-ci.org/michaelnisi/gitpull.png)](http://travis-ci.org/michaelnisi/gitpull)
+
 ## Usage
 
 ### Stream
