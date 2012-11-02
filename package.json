@@ -14,7 +14,7 @@
   ],
   "main": "./index.js",
   "engines": {
-    "node": ">=0.4.0"
+    "node": "0.8.x"
   },
   "directories": {
     "lib": "lib",
@@ -25,8 +25,8 @@
     "test": "tap test/*.js"
   },
   "devDependencies": {
-    "tap": "",
-    "rimraf": ""
+    "tap": "0.3.x",
+    "rimraf": "2.0.x"
   },
   "license": "MIT",
   "author": {
