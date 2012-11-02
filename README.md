@@ -1,6 +1,10 @@
-# gitpull - incorporate changes from a remote repository into the current branch
+# gitpull - fetch from and merge with another branch
 
 [![Build Status](https://secure.travis-ci.org/michaelnisi/gitpull.png)](http://travis-ci.org/michaelnisi/gitpull)
+
+## Description
+
+Incorporate changes from a remote repository into the current branch.
 
 ## Usage
 
