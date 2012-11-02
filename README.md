@@ -10,7 +10,7 @@
 
     gitpull('.')
       .on('error', function (err) {
-        console.error(error.message)
+        console.error(err.message)
       })
       .on('end', function () {
         console.log('OK')
