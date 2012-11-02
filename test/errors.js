@@ -1,5 +1,6 @@
 var test = require('tap').test
   , fs = require('fs')
+  , rimraf = require('rimraf')
   , join = require('path').join
   , dir = '/tmp/gitpull-' + Math.floor(Math.random() * (1<<24))
   , spawn = require('child_process').spawn
@@ -34,11 +35,24 @@ test('git init', function (t) {
   })
 })
 
-test('gitpull', function (t) {
-  t.end()
+test('No remote repository specified', function (t) {
+  var errors = []
+  
+  gitpull(dir)
+    .on('error', function (err) {
+      errors.push(err)
+    })
+    .on('end', function () {
+      t.ok(errors.length > 0, 'should contain errors')
+      t.end()
+    })
 })
 
 test('teardown', function (t) {
-  t.end()
+  rimraf(dir, function (err) {
+    fs.stat(dir, function (err) {
+      t.ok(!!err, 'should error')
+      t.end()
+    })
+  })
 })
-
