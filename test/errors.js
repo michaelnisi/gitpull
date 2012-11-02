@@ -12,7 +12,7 @@ test('setup', function (t) {
   t.end()
 })
 
-test('Not a git repository', function (t) {
+test('notGitRepo', function (t) {
   var errors = []
   
   gitpull(dir)
@@ -25,7 +25,7 @@ test('Not a git repository', function (t) {
     })
 })
 
-test('git init', function (t) {
+test('gitInit', function (t) {
   var ps = spawn('git', ['init'])
   
   ps.stderr.pipe(process.stderr, { end:false })
@@ -35,7 +35,7 @@ test('git init', function (t) {
   })
 })
 
-test('No remote repository specified', function (t) {
+test('noRemote', function (t) {
   var errors = []
   
   gitpull(dir)
